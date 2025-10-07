@@ -1,5 +1,5 @@
 function romanToInt(s: string): number {
-    let strArray = s.split("");
+  
     let answer = 0;
 
     let romanMap = new Map<string, number>([
@@ -12,11 +12,11 @@ function romanToInt(s: string): number {
         ["M", 1000],
     ]);
 
-    for (let i = 0; i < strArray.length ; i++) {
+    for (let i = 0; i < s.length ; i++) {
         let j = i + 1;
 
-        let firstNumber = romanMap.get(strArray[i]);
-        let secondNumber = romanMap.get(strArray[j]);
+        let firstNumber = romanMap.get(s[i]);
+        let secondNumber = romanMap.get(s[j]);
 
         if (firstNumber < secondNumber) {
             answer -= firstNumber;
