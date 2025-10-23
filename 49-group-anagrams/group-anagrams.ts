@@ -1,17 +1,16 @@
 function groupAnagrams(strs: string[]): string[][] {
-    
-    let resultMap = {}
+
+    let resultMap = new Map<string, string[]>()
 
     for(const str of strs){
-
         let sortedStr = str.split('').sort().join('')
 
-        if(Object.hasOwn(resultMap, sortedStr)){
-            resultMap[sortedStr].push(str)
+        if(resultMap.has(sortedStr)){
+            resultMap.get(sortedStr).push(str)
         }else{
-            resultMap[sortedStr] = [str]
+            resultMap.set(sortedStr, [str])
         }
     }
 
-    return Object.values(resultMap)
+    return Array.from(resultMap.values())
 };
