@@ -1,15 +1,15 @@
 function groupAnagrams(strs: string[]): string[][] {
-
-let resultMap = new Map <string, string[]>
+let result = {}
 
 for(let str of strs){
     let sortedStr = str.split('').toSorted().join('')
-    if(resultMap.has(sortedStr)){
-        resultMap.get(sortedStr).push(str)
+        
+    if(!result[sortedStr]){
+        result[sortedStr] = [str]
     }else{
-        resultMap.set(sortedStr, [str])
+        result[sortedStr].push(str)
     }
 }
 
-return Array.from(resultMap.values())
+return Array.from(Object.values(result))
 };
